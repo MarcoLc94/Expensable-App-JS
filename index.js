@@ -10,8 +10,9 @@ const credentials = {
 async function test() {
   try {
     const user = await login(credentials);
-    logout();
-    console.log(user);
+    const message = await logout();
+    console.log(user)
+    console.log(message);
   } catch (error) {
     console.error(error);
   }
