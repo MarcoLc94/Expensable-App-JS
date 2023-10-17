@@ -1,22 +1,8 @@
 import { BASE_URI, tokenKey } from "../config.js";
-import apiFetch from "./api-fetch.js";
 
 async function login(credentials = { email, password }) {
-    const {token, ...user} = await apiFetch("/login", { body: credentials})
-//   const response = await fetch(`${BASE_URI}/login`, {
-//     method: "POST",
-//     body: JSON.stringify(credentials),
-//     headers: {
-//       "Content-Type": "application/json",
-//     },
-//   });
-//   console.log(response.ok);
-//   const data = await response.json();
-//   if (!response.ok) {
-//     console.log(data);
-//     throw new error();
-//   }
-  sessionStorage.setItem(tokenKey, token);
+  const user = await apiFetch("/login", { body: credentials });
+  sessionStorage.setItem(tokenKey, user.token);
   return user;
 }
 
