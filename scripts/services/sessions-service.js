@@ -1,4 +1,5 @@
 import { BASE_URI, tokenKey } from "../config.js";
+import { apiFetch } from "./api-fetch.js"
 
 async function login(credentials = { email, password }) {
   const user = await apiFetch("/login", { body: credentials });

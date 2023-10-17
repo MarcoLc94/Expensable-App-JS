@@ -41,4 +41,6 @@ export default async function apiFetch(
   return data;
 }
 
+export { apiFetch }
+
 // apiFetch("login",{})
