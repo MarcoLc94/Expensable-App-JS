@@ -3,6 +3,7 @@ import { apiFetch } from "./api-fetch.js";
 
 async function login(credentials = { email, password }) {
   const { token, ...user } = await apiFetch("/login", { body: credentials });
+  console.log(user);
   sessionStorage.setItem(tokenKey, token);
   return user;
 }

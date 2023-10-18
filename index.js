@@ -7,7 +7,9 @@ import { login } from "./scripts/services/sessions-service.js";
 async function init() {
   const token = sessionStorage.getItem(tokenKey);
   if (!token) return DOMHandler.load(LoginPage);
-  DOMHandler.load(HomePage);
+  const user = await getUser();
 }
+DOMHandler.load(HomePage);
+
 login({ email: "marcolopez@mail.com", password: "123456" });
 init();
