@@ -30,7 +30,7 @@ export async function updateUser(
 }
 
 export async function getUser() {
-  const user = apiFetch("/profile");
-  console.log(user);
+  const user = await apiFetch("/profile");
+
   return user;
 }
