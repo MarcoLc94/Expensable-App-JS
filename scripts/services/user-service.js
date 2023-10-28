@@ -1,4 +1,4 @@
-import apiFetch from "./api-fetch.js";
+import { apiFetch } from "./api-fetch.js";
 import { tokenKey } from "../config.js";
 
 export async function createuser(

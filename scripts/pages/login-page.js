@@ -35,14 +35,6 @@ function render() {
   `;
 }
 
-function listenTitle() {
-  const title = document.querySelector(".js-title");
-  title.addEventListener("click", (event) => {
-    event.preventDefault();
-    console.log("estoy haciendo click al titulo");
-  });
-}
-
 function listenSubmit() {
   const buttonSub = document.querySelector(".js-login-form");
   buttonSub.addEventListener("submit", async (event) => {
@@ -55,7 +47,8 @@ function listenSubmit() {
       };
       const user = await login(credentials);
       STORE.user = user;
-      console.log(user);
+      STORE.fetchCategories();
+      console.log(STORE);
       DOMHandler.load(HomePage);
     } catch (error) {
       console.log(error);
@@ -71,7 +64,6 @@ const LoginPage = {
   },
   addListeners() {
     listenSubmit();
-    listenTitle();
   },
   state: {
     loginError: null,

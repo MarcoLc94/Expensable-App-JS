@@ -1,9 +1,6 @@
 import { BASE_URI, tokenKey } from "../config.js";
 
-export default async function apiFetch(
-  endPoint,
-  { method, headers, body } = {}
-) {
+export async function apiFetch(endPoint, { method, headers, body } = {}) {
   const token = sessionStorage.getItem(tokenKey);
   if (token) {
     headers = {
@@ -41,5 +38,4 @@ export default async function apiFetch(
   return data;
 }
 
-// apiFetch("login",{})
-export { apiFetch };
+export default { apiFetch };
